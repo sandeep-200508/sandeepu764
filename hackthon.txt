@@ -1,0 +1,17 @@
+import PyPDF2
+import openai
+
+# ------------------ Configuration ------------------
+openai.api_key = "YOUR_OPENAI_API_KEY"  # Replace with your OpenAI API key
+# ---------------------------------------------------
+
+def extract_text_from_pdf(pdf_path):
+    text = ""
+    with open(pdf_path, "rb") as file:
+        reader = PyPDF2.PdfReader(file)
+        for page in reader.pages:
+            text += page.extract_text()
+    return text
+
+def ask_question(pdf_text, question):
+    prompt
